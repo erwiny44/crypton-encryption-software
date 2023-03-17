@@ -5,33 +5,22 @@ Encryption part of the software.
 
 import sys
 import os
-import subprocess
 import base64
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
-
-
-from base64 import b64encode
-
-# The plaintext message to encrypt
-if len(sys.argv) == 1:
-    print('Add argument')
-    sys.exit()
-
-message = sys.argv[1]
-
-
-# Key - IV
 import random
 import string
 
+from base64 import b64encode
+
+message = input("Message:")
 
 letters = string.ascii_lowercase
 secret_key1 = ''.join(random.choice(letters) for i in range(32))
 
 iv = b'\xf0\xf1\xf2\xf3\xf4\xf5\xf6\xf7\xf8\xf9\xfa\xfb\xfc\xfd\xfe\xff'
 
-print("Secret key is :"+secret_key1)
+print("Secret key is : "+secret_key1)
 secret_key=secret_key1.encode()
 
 BLOCK_SIZE = 32

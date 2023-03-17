@@ -4,18 +4,14 @@ Decryption part of the software.
 """
 
 import os
-import subprocess
 import base64
 import sys
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
 
 # Get the encrypted message from the command line.
-if len(sys.argv) == 1:
-    print('Add argument')
-    sys.exit()
 
-encrypted_message = sys.argv[1]
+encrypted_message = input("Give me the encrypted message: ")
 
 
 # Key - IV
