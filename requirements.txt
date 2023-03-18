@@ -1,2 +1,0 @@
-cffi==1.15.1
-pycryptodome_test_vectors==1.0.11
