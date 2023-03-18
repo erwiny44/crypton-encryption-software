@@ -4,39 +4,40 @@
   <title>Encryption/Decryption Demo</title>
 </head>
 <body>
-  <h1>Encryption</h1>
-  <form id="encrypt-form">
-    <label for="encrypt-input">Enter text to encrypt:</label>
-    <br>
-    <input type="text" id="encrypt-input">
-    <br>
-    <button type="submit" id="encrypt-button">Encrypt</button>
-    <br>
-    <br>
-    <label for="encrypt-output">Encrypted text:</label>
-    <br>
-    <textarea id="encrypt-output" rows="4" cols="50" readonly></textarea>
-  </form>
-
-  <hr>
-
-  <h1>Decryption</h1>
-  <form id="decrypt-form">
-    <label for="decrypt-input1">Enter encrypted text:</label>
-    <br>
-    <input type="text" id="decrypt-input1">
-    <br>
-    <label for="decrypt-input2">Enter decryption key:</label>
-    <br>
-    <input type="text" id="decrypt-input2">
-    <br>
-    <button type="submit" id="decrypt-button">Decrypt</button>
-    <br>
-    <br>
-    <label for="decrypt-output">Decrypted text:</label>
-    <br>
-    <textarea id="decrypt-output" rows="4" cols="50" readonly></textarea>
-  </form>
+  <div class="container">
+    <div class="card" style="margin-right: 10px;">
+        <h1>Encryption</h1>
+        <form id="encrypt-form">
+          <div class="form-element">
+            <label for="encrypt-input">Enter text to encrypt:</label>
+            <input type="text" id="encrypt-input">
+            <br>
+            <button type="submit" id="encrypt-button" class="form-button" style="margin-left: 152px;">Encrypt</button>
+          </div>
+          <div class="form-content">
+            <textarea id="encrypt-output" placeholder="Encrypted text" rows="4" cols="50" readonly></textarea>
+          </div>
+        </form>
+    </div>
+    <div class="card" style="margin-left: 10px;">
+        <h1>Decryption</h1>
+        <form id="decrypt-form">
+          <div class="form-element">
+            <label for="decrypt-input1">Enter encrypted text:</label>
+            <input type="text" id="decrypt-input1" style="margin-left: 2px;">
+          </div>
+          <div class="form-element">
+            <label for="decrypt-input2">Enter decryption key:</label>
+            <input type="text" id="decrypt-input2">
+            <br>
+            <button type="submit" id="decrypt-button" class="form-button" style="margin-left: 154px;">Decrypt</button>
+          </div>
+          <div class="form-content">
+            <textarea id="decrypt-output" placeholder="Decrypted text" rows="4" cols="50" readonly></textarea>
+          </div>
+        </form>
+    </div>
+  </div>
 
   <script>
     const encryptForm = document.getElementById('encrypt-form');
@@ -95,4 +96,37 @@
     }
   </script>
 </body>
+  <style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #232323;
+        color: white;
+    }
+    .container {
+        display: flex;
+    }
+    .card {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #171717;
+        padding: 0 50px 20px 50px;
+    }
+    .form-element {
+        padding-bottom: 15px;
+    }
+    .form-button {
+        height: 35px;
+        width: 80px;
+        margin-top: 10px;
+    }
+
+    input {
+        width: 250px;
+    }
+</style>
 </html>
