@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Encryption/Decryption Demo</title>
+</head>
+<body>
+  <h1>Encryption</h1>
+  <form id="encrypt-form">
+    <label for="encrypt-input">Enter text to encrypt:</label>
+    <br>
+    <input type="text" id="encrypt-input">
+    <br>
+    <button type="submit" id="encrypt-button">Encrypt</button>
+    <br>
+    <br>
+    <label for="encrypt-output">Encrypted text:</label>
+    <br>
+    <textarea id="encrypt-output" rows="4" cols="50" readonly></textarea>
+  </form>
+
+  <hr>
+
+  <h1>Decryption</h1>
+  <form id="decrypt-form">
+    <label for="decrypt-input1">Enter encrypted text:</label>
+    <br>
+    <input type="text" id="decrypt-input1">
+    <br>
+    <label for="decrypt-input2">Enter decryption key:</label>
+    <br>
+    <input type="text" id="decrypt-input2">
+    <br>
+    <button type="submit" id="decrypt-button">Decrypt</button>
+    <br>
+    <br>
+    <label for="decrypt-output">Decrypted text:</label>
+    <br>
+    <textarea id="decrypt-output" rows="4" cols="50" readonly></textarea>
+  </form>
+
+  <script>
+    const encryptForm = document.getElementById('encrypt-form');
+    const encryptInput = document.getElementById('encrypt-input');
+    const encryptOutput = document.getElementById('encrypt-output');
+    const encryptButton = document.getElementById('encrypt-button');
+
+    const decryptForm = document.getElementById('decrypt-form');
+    const decryptInput1 = document.getElementById('decrypt-input1');
+    const decryptInput2 = document.getElementById('decrypt-input2');
+    const decryptOutput = document.getElementById('decrypt-output');
+    const decryptButton = document.getElementById('decrypt-button');
+
+    encryptForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const textToEncrypt = encryptInput.value;
+      const encryptedText = await encryptText(textToEncrypt);
+      encryptOutput.value = encryptedText;
+    });
+
+    decryptForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const encryptedText = decryptInput1.value.trim();
+      const decryptionKey = decryptInput2.value;
+      const decryptedText = await decryptText(encryptedText, decryptionKey);
+      decryptOutput.value = decryptedText;
+    });
+
+    async function encryptText(textToEncrypt) {
+      const response = await fetch('/encrypt', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          plaintext: textToEncrypt
+        })
+      });
+      const data = await response.json();
+      return data.ciphertext;
+    }
+
+    async function decryptText(encryptedText, decryptionKey) {
+      const response = await fetch('/decrypt', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          ciphertext: encryptedText,
+          key: decryptionKey
+        })
+      });
+      const data = await response.json();
+      return data.plaintext;
+    }
+  </script>
+</body>
+</html>
