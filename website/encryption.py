@@ -33,8 +33,8 @@ try:
         base64_encrypted_message = base64.b64encode(encrypted_message) 
 
         encstr = base64_encrypted_message.decode()
-        print("Hash is :"+encstr+"                   Secret key is:"+secret_key1)
+        print("Your hash :"+encstr+"                   Your secret key:"+secret_key1)
 
     aes(message)
 except IndexError as e:
-    print("Please write something")
+    print("Please write the text you want to encrypt.")
