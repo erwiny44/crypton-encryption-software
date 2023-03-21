@@ -28,7 +28,7 @@ padded_message = pad(message.encode(), BLOCK_SIZE) # --> PKCS7 padding.
 
 
 cipher = AES.new(secret_key, AES.MODE_CBC, iv) # --> Create a cipher object using the secret key and the IV
-encrypted_message = cipher.encrypt(padded_message) # --> Encrypts the padded message by using cipher.
+encrypted_message = cipher.encrypt(padded_message) # --> Encrypts the padded message with a cipher.
 base64_encrypted_message = base64.b64encode(encrypted_message) # --> Encode the encrypted message to base64
 
 encstr = base64_encrypted_message.decode()
