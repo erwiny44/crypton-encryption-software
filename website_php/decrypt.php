@@ -1,1 +1,0 @@
-<?php echo shell_exec("python3 decrypt.py " . escapeshellarg($_POST["text1"]) . " " . escapeshellarg($_POST["text2"]));  ?>
