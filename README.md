@@ -14,8 +14,4 @@ AES uses a technique called substitution-permutation network (SPN) for encryptio
 About Crypton-1
 -----------------
 The program has a basic UI developed with tkinter library. You can perform these operations we referred before by using this UI.
-There are instructions in the UI explaining how to use this software.
-
-# Developed by:
-- Erwin
-- taro544
+There are instructions in the UI explaining how to use the software.
