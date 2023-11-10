@@ -1,7 +1,7 @@
 # Crypton-1
 Encryption &amp; Decryption Software
 
-Crypton-1 is a encryption/decryption software which is capable of doing these 2 specific jobs with AES method.
+Crypton-1 is a encryption/decryption software which is capable of doing 2 of these specific jobs with AES method.
 
 What is AES?
 -------------
